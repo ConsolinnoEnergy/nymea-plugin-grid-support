@@ -9,51 +9,46 @@ IntegrationPlugin14a::IntegrationPlugin14a() :
 
 IntegrationPlugin14a::~IntegrationPlugin14a()
 {
-    if (m_pluginTimer) {
-        delete m_pluginTimer;
-    }
 }
 
 void IntegrationPlugin14a::init()
 {
     qDebug() << "Initializing Integration Plugin 14a";
-
-    m_pluginTimer = new PluginTimer(this);
-    connect(m_pluginTimer, &PluginTimer::timeout, this, &IntegrationPlugin14a::onPluginTimer);
-    m_pluginTimer->start(1000);
+    connect(&m_timer, &QTimer::timeout, this, &IntegrationPlugin14a::onTimeout);
+    m_timer.start(1000); // 1 second interval
 }
 
 void IntegrationPlugin14a::discoverThings(ThingDiscoveryInfo *info)
 {
+    Q_UNUSED(info)
     // Discovery logic
 }
 
 void IntegrationPlugin14a::setupThing(ThingSetupInfo *info)
 {
+    Q_UNUSED(info)
     // Setup logic
 }
 
 void IntegrationPlugin14a::postSetupThing(Thing *thing)
 {
+    Q_UNUSED(thing)
     // Post setup logic
 }
 
 void IntegrationPlugin14a::thingRemoved(Thing *thing)
 {
+    Q_UNUSED(thing)
     // Cleanup logic when a thing is removed
 }
 
 void IntegrationPlugin14a::executeAction(ThingActionInfo *info)
 {
+    Q_UNUSED(info)
     // Action execution logic
 }
 
-void IntegrationPlugin14a::onPluginTimer()
-{
-    handleVariables();
-}
-
-void IntegrationPlugin14a::handleVariables()
+void IntegrationPlugin14a::onTimeout()
 {
     qDebug() << "Handling variables...";
 
