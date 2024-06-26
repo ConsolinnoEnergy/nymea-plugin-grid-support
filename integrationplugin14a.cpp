@@ -1,19 +1,26 @@
 #include "integrationplugin14a.h"
 #include <QDebug>
 
-IntegrationPlugin14a::IntegrationPlugin14a()
+IntegrationPlugin14a::IntegrationPlugin14a() :
+    m_limitingActive(false),
+    m_pLim(0.0)
 {
+}
+
+IntegrationPlugin14a::~IntegrationPlugin14a()
+{
+    if (m_pluginTimer) {
+        delete m_pluginTimer;
+    }
 }
 
 void IntegrationPlugin14a::init()
 {
     qDebug() << "Initializing Integration Plugin 14a";
-    m_limitingActive = new PluginState("limitingActive", this);
-    m_pLim = new PluginState("pLim", this);
 
-    // Initialize states with default values
-    m_limitingActive->setValue(false);
-    m_pLim->setValue(0.0);
+    m_pluginTimer = new PluginTimer(this);
+    connect(m_pluginTimer, &PluginTimer::timeout, this, &IntegrationPlugin14a::onPluginTimer);
+    m_pluginTimer->start(1000);
 }
 
 void IntegrationPlugin14a::discoverThings(ThingDiscoveryInfo *info)
@@ -31,14 +38,19 @@ void IntegrationPlugin14a::postSetupThing(Thing *thing)
     // Post setup logic
 }
 
+void IntegrationPlugin14a::thingRemoved(Thing *thing)
+{
+    // Cleanup logic when a thing is removed
+}
+
 void IntegrationPlugin14a::executeAction(ThingActionInfo *info)
 {
     // Action execution logic
 }
 
-void IntegrationPlugin14a::thingRemoved(Thing *thing)
+void IntegrationPlugin14a::onPluginTimer()
 {
-    // Cleanup logic when a thing is removed
+    handleVariables();
 }
 
 void IntegrationPlugin14a::handleVariables()
@@ -46,13 +58,14 @@ void IntegrationPlugin14a::handleVariables()
     qDebug() << "Handling variables...";
 
     // Example logic for updating states
-    bool limitingActive = m_limitingActive->value().toBool();
-    float pLim = m_pLim->value().toFloat();
+    m_limitingActive = !m_limitingActive;
+    m_pLim += 0.1;
 
-    qDebug() << "Limitierung aktiv:" << limitingActive;
-    qDebug() << "PLim:" << pLim;
+    qDebug() << "Limitierung aktiv:" << m_limitingActive;
+    qDebug() << "PLim:" << m_pLim;
 
-    // Update states as needed
-    m_limitingActive->setValue(!limitingActive);
-    m_pLim->setValue(pLim + 0.1);
+    // Publish the updated states
+    // Example:
+    // myThing->setStateValue("limitingActive", m_limitingActive);
+    // myThing->setStateValue("pLim", m_pLim);
 }

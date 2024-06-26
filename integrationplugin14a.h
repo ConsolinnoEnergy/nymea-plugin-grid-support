@@ -1,32 +1,36 @@
 #ifndef INTEGRATIONPLUGIN14A_H
 #define INTEGRATIONPLUGIN14A_H
 
-#include <QObject>
-#include <integrations/integrationplugin.h>
-#include <plugintimer.h>
-#include <pluginstate.h>
+#include "integrations/integrationplugin.h"
+#include "plugintimer.h"
 
-class IntegrationPlugin14a : public IntegrationPlugin
-{
+#include <QHash>
+#include <QUuid>
+
+class IntegrationPlugin14a : public IntegrationPlugin {
     Q_OBJECT
-
     Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationplugin14a.json")
     Q_INTERFACES(IntegrationPlugin)
 
 public:
     explicit IntegrationPlugin14a();
+    ~IntegrationPlugin14a() override;
 
     void init() override;
-    void discoverThings(ThingDiscoveryInfo *info) override;
-    void setupThing(ThingSetupInfo *info) override;
-    void postSetupThing(Thing *thing) override;
-    void executeAction(ThingActionInfo *info) override;
-    void thingRemoved(Thing *thing) override;
+    void discoverThings(ThingDiscoveryInfo* info) override;
+    void setupThing(ThingSetupInfo* info) override;
+    void postSetupThing(Thing* thing) override;
+    void thingRemoved(Thing* thing) override;
+    void executeAction(ThingActionInfo* info) override;
 
 private:
-    PluginState *m_limitingActive;
-    PluginState *m_pLim;
+    PluginTimer* m_pluginTimer = nullptr;
 
+    bool m_limitingActive;
+    float m_pLim;
+
+private slots:
+    void onPluginTimer();
     void handleVariables();
 };
 
