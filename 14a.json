@@ -9,6 +9,13 @@
     "license": "GPLv3",
     "url": "https://yourwebsite.com",
     "sourceUrl": "https://github.com/yourgithub/14a",
+    "interfaces": [
+        {
+            "id": "gridsupport",
+            "name": "Grid Support",
+            "type": "interface"
+        }
+    ],
     "states": [
         {
             "id": "limitingActive",

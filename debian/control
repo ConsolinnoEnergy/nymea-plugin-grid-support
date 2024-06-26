@@ -15,4 +15,4 @@ Multi-Arch: same
 Section: libs
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-Description: nymea.io plugin for §14a grid support
+Description: A plugin to handle variables for §14a compliance.

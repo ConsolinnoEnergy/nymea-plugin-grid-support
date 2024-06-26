@@ -1,9 +1,11 @@
-TEMPLATE = lib
-CONFIG += plugin
-TARGET = 14a
-INCLUDEPATH += .
+include(plugins.pri)
 
-QT += core
+QT += network
 
-SOURCES += 14a.cpp
-HEADERS += 14a.h
+SOURCES += \
+    14a.cpp
+
+HEADERS += \
+    14a.h
+
+CONFIG += c++11
