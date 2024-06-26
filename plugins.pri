@@ -15,6 +15,3 @@ isEmpty(PLUGIN_PRI) {
   message("Using $$PLUGIN_PRI")
   include($$PLUGIN_PRI)
 }
-
-CONFIG += c++11
-
