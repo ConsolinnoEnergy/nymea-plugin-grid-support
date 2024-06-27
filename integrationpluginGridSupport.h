@@ -1,18 +1,18 @@
-#ifndef INTEGRATIONPLUGIN14A_H
-#define INTEGRATIONPLUGIN14A_H
+#ifndef INTEGRATIONPLUGINGridSupport_H
+#define INTEGRATIONPLUGINGridSupport_H
 
 #include "integrations/integrationplugin.h"
 #include <QTimer>
 
-class IntegrationPlugin14a : public IntegrationPlugin
+class IntegrationPluginGridSupport : public IntegrationPlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationplugin14a.json")
+    Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationpluginGridSupport.json")
     Q_INTERFACES(IntegrationPlugin)
 
 public:
-    explicit IntegrationPlugin14a();
-    ~IntegrationPlugin14a() override;
+    explicit IntegrationPluginGridSupport();
+    ~IntegrationPluginGridSupport() override;
 
     void init() override;
     void discoverThings(ThingDiscoveryInfo *info) override;
@@ -30,4 +30,4 @@ private:
     float m_pLim;
 };
 
-#endif // INTEGRATIONPLUGIN14A_H
+#endif // INTEGRATIONPLUGINGridSupport_H
