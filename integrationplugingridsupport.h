@@ -1,5 +1,5 @@
-#ifndef INTEGRATIONPLUGINGridSupport_H
-#define INTEGRATIONPLUGINGridSupport_H
+#ifndef INTEGRATIONPLUGINGRIDSUPPORT_H
+#define INTEGRATIONPLUGINGRIDSUPPORT_H
 
 #include "integrations/integrationplugin.h"
 #include <QTimer>
@@ -7,7 +7,7 @@
 class IntegrationPluginGridSupport : public IntegrationPlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationpluginGridSupport.json")
+    Q_PLUGIN_METADATA(IID "io.nymea.IntegrationPlugin" FILE "integrationplugingridsupport.json")
     Q_INTERFACES(IntegrationPlugin)
 
 public:
@@ -30,4 +30,4 @@ private:
     float m_pLim;
 };
 
-#endif // INTEGRATIONPLUGINGridSupport_H
+#endif // INTEGRATIONPLUGINGRIDSUPPORT_H

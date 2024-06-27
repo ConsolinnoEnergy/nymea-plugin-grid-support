@@ -1,2 +1,2 @@
-usr/lib/@DEB_HOST_MULTIARCH@/nymea/plugins/libnymea_integrationpluginGridSupport.so
+usr/lib/@DEB_HOST_MULTIARCH@/nymea/plugins/libnymea_integrationplugingridsupport.so
 translations/*.qm usr/share/nymea/translations/
