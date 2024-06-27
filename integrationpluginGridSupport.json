@@ -1,6 +1,6 @@
 {
     "name": "Integration Plugin gridsupport",
-    "className": "IntegrationPluginGridsupport",
+    "className": "IntegrationPluginGridSupport",
     "uuid": "12345678-1234-1234-1234-123456789abc",
     "version": "1.0",
     "author": "Tim Fischer",
