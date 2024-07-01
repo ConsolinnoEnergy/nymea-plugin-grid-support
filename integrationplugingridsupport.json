@@ -1,30 +1,42 @@
 {
-    "name": "Integration Plugin gridsupport",
-    "className": "IntegrationPlugingridsupport",
-    "uuid": "12345678-1234-1234-1234-123456789abc",
-    "version": "1.0",
-    "author": "Tim Fischer",
-    "email": "t.fischer@consolinno.de",
-    "description": "A plugin to handle variables for §14a compliance.",
-    "license": "GPLv3",
-    "sourceUrl": "https://gitlab.consolinno-it.de/leafletfirmware/nymea/nymea-plugin-grid-support",
-    "interfaces": [
+    "description": "A plugin which represents the state of grid support control variables",
+    "displayName": "Grid support",
+    "name": "gridsupport",
+    "id": "22371417-b871-458c-aebf-1f13e537d08c",
+    "vendors": [
         {
-            "id": "gridsupport",
-            "name": "grid support",
-            "type": "interface"
-        }
-    ],
-    "states": [
-        {
-            "id": "limitingActive",
-            "name": "Limiting Active",
-            "type": "bool"
-        },
-        {
-            "id": "pLim",
-            "name": "Power Limit (PLim)",
-            "type": "float"
+            "displayName": "Consolinno Energy GmbH",
+            "id": "4ad726e0-3085-41b0-b78f-117ca3847b9f",
+            "name": "consolinno",
+            "thingClasses": [
+                {
+                    "createMethods": [
+                        "User"
+                    ],
+                    "displayName": "Grid support",
+                    "id": "d6821b26-ddb2-4115-84dd-92db0e961bc3",
+                    "interfaces": [
+                        "gridsupport"
+                    ],
+                    "name": "tibber",
+                    "paramTypes": [],
+                    "setupMethod": "JustAdd",
+                    "stateTypes": [
+                        {
+                            "displayName": "Limiting Active",
+                            "id": "95c425d2-fe71-4df2-8bd5-0f4e46865490",
+                            "name": "limitingActive",
+                            "type": "bool"
+                        },
+                        {
+                            "displayName": "Power Limit (PLim)",
+                            "id": "7ab31d5b-cbd5-416e-b1e4-4de2a46df847",
+                            "name": "pLim",
+                            "type": "float"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
