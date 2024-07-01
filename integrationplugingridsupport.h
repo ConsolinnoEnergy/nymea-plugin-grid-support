@@ -22,7 +22,6 @@ public:
     void executeAction(ThingActionInfo *info) override;
 
 private slots:
-    void onTimeout();
 
 private:
     QTimer m_timer;
