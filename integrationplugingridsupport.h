@@ -20,6 +20,7 @@ public:
 
 
 private slots:
+    void onPluginTimer();
 
 private: 
     PluginTimer *m_pluginTimer = nullptr;

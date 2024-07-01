@@ -28,3 +28,7 @@ void IntegrationPluginGridSupport::thingRemoved(Thing* thing)
     }
 }
 
+void IntegrationPluginGridSupport::onPluginTimer()
+{
+    // Periodic timer logic
+}
