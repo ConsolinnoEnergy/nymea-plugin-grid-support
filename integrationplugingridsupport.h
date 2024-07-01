@@ -16,6 +16,7 @@ public:
 
     void setupThing(ThingSetupInfo* info) override;
     void thingRemoved(Thing* thing) override;
+    void executeAction(ThingActionInfo* info) override;
 
 private slots:
     void onPluginTimer();

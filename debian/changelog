@@ -1,6 +1,7 @@
 nymea-plugin-grid-support (0.0.2) UNRELEASED; urgency=medium
 
   * refactor
+  * Added action to set plim for debugging purposes
 
  -- Tim Fischer <t.fischer@consolinno.de> Wed, 01 Jul 2024 11:37:31 +0100
 

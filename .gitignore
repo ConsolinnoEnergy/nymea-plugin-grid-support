@@ -1,0 +1,14 @@
+*.pro.user
+builddir
+doc/html
+*.qm
+__pycache__
+settings.json
+.qmake.stash
+Makefile
+*.o
+*.pro.user
+*.so
+moc_*.cpp
+moc_*.h
+plugininfo.h
