@@ -1,45 +1,34 @@
 #include "integrationplugingridsupport.h"
+#include "plugininfo.h"
+#include "integrations/thing.h"
 #include <QDebug>
 
 IntegrationPluginGridSupport::IntegrationPluginGridSupport()
-    : m_limitingActive(false)
-    , m_pLim(0.0)
 {
 }
 
 IntegrationPluginGridSupport::~IntegrationPluginGridSupport() { }
 
-void IntegrationPluginGridSupport::init()
-{
-    qDebug() << "Initializing Integration Plugin gridsupport";
-}
-
-void IntegrationPluginGridSupport::discoverThings(ThingDiscoveryInfo* info)
-{
-    Q_UNUSED(info)
-    // Discovery logic
-}
-
 void IntegrationPluginGridSupport::setupThing(ThingSetupInfo* info)
 {
-    Q_UNUSED(info)
-    // Setup logic
-}
-
-void IntegrationPluginGridSupport::postSetupThing(Thing* thing)
-{
-    Q_UNUSED(thing)
-    // Post setup logic
+    qCDebug(dcGridsupport) << "Setup thing" << info->thing()->name() << info->thing()->params();
+    if (!m_pluginTimer) {
+        m_pluginTimer = hardwareManager()->pluginTimerManager()->registerTimer(60 * 60);
+        connect(m_pluginTimer, &PluginTimer::timeout, this, &IntegrationPluginGridSupport::onPluginTimer);
+    }
+     info->finish(Thing::ThingErrorNoError);
 }
 
 void IntegrationPluginGridSupport::thingRemoved(Thing* thing)
 {
     Q_UNUSED(thing)
-    // Cleanup logic when a thing is removed
+    if (m_pluginTimer && myThings().isEmpty()) {
+        hardwareManager()->pluginTimerManager()->unregisterTimer(m_pluginTimer);
+        m_pluginTimer = nullptr;
+    }
 }
 
-void IntegrationPluginGridSupport::executeAction(ThingActionInfo* info)
+void IntegrationPluginGridSupport::onPluginTimer()
 {
-    Q_UNUSED(info)
-    // Action execution logic
+    // Periodic timer logic
 }
