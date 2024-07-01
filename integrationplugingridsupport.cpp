@@ -32,5 +32,3 @@ void IntegrationPluginGridSupport::onPluginTimer()
 {
     // Periodic timer logic
 }
- 
-
