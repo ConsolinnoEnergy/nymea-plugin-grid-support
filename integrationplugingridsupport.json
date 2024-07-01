@@ -33,6 +33,7 @@
                             "id": "7ab31d5b-cbd5-416e-b1e4-4de2a46df847",
                             "name": "pLim",
                             "type": "float",
+                            "unit": "Watt",
                             "defaultValue": "0.0"
                         }
                     ]
