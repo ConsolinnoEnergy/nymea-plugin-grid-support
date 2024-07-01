@@ -2,6 +2,7 @@
 #define INTEGRATIONPLUGINGRIDSUPPORT_H
 
 #include "integrations/integrationplugin.h"
+#include "plugintimer.h"
 #include <QTimer>
 
 class IntegrationPluginGridSupport : public IntegrationPlugin
@@ -14,20 +15,15 @@ public:
     explicit IntegrationPluginGridSupport();
     ~IntegrationPluginGridSupport() override;
 
-    void init() override;
-    void discoverThings(ThingDiscoveryInfo *info) override;
     void setupThing(ThingSetupInfo *info) override;
-    void postSetupThing(Thing *thing) override;
     void thingRemoved(Thing *thing) override;
-    void executeAction(ThingActionInfo *info) override;
+
 
 private slots:
-    void onTimeout();
+    void onPluginTimer();
 
-private:
-    QTimer m_timer;
-    bool m_limitingActive;
-    float m_pLim;
+private: 
+    PluginTimer *m_pluginTimer = nullptr;
 };
 
 #endif // INTEGRATIONPLUGINGRIDSUPPORT_H
