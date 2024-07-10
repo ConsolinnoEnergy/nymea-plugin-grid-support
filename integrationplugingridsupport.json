@@ -28,7 +28,7 @@
                             "type": "QString",
                             "displayNameAction": "Set PLim Status (Testing only)",
                             "defaultValue": "unrestricted",
-                            "writeable": true
+                            "writable": true
                         },
                         {
                             "displayName": "Power Limit (PLim)",
