@@ -22,11 +22,13 @@
                     "setupMethod": "JustAdd",
                     "stateTypes": [
                         {
-                            "displayName": "Limiting Active",
+                            "displayName": "Status",
                             "id": "95c425d2-fe71-4df2-8bd5-0f4e46865490",
-                            "name": "plimActive",
-                            "type": "bool",
-                            "defaultValue": "false"
+                            "name": "plimStatus",
+                            "type": "QString",
+                            "displayNameAction": "Set PLim Status (Testing only)",
+                            "defaultValue": "unrestricted",
+                            "writable": true
                         },
                         {
                             "displayName": "Power Limit (PLim)",

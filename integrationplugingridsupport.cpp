@@ -32,14 +32,12 @@ void IntegrationPluginGridSupport::executeAction(ThingActionInfo* info)
     if (info->action().actionTypeId() == gridsupportPlimActionTypeId) {
         float plim = info->action().paramValue(gridsupportPlimActionPlimParamTypeId).toFloat();
         info->thing()->setStateValue(gridsupportPlimStateTypeId, plim);
-        if (plim == 0) {
-            info->thing()->setStateValue(gridsupportPlimActiveStateTypeId, false);
-        } else {
-            info->thing()->setStateValue(gridsupportPlimActiveStateTypeId, true);
-        }
+        info->finish(Thing::ThingErrorNoError);
+    } else if (info->action().actionTypeId() == gridsupportPlimStatusActionTypeId) {
+        QString value = info->action().paramValue(gridsupportPlimStatusActionPlimStatusParamTypeId).toString();
+        info->thing()->setStateValue(gridsupportPlimStatusStateTypeId, value);
         info->finish(Thing::ThingErrorNoError);
     }
-
 }
 
 void IntegrationPluginGridSupport::onPluginTimer()
