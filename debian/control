@@ -3,7 +3,7 @@ Section: utils
 Priority: options
 Maintainer: Consolinno Energy GmbH <office@consolinno.de>
 Build-depends: debhelper (>= 9.0.0),
-               libnymea-dev,
+               libnymea-dev (>=1.7.004),
                nymea-dev-tools:native,
                qtbase5-dev,
                pkg-config,
