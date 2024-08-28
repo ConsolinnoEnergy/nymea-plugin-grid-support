@@ -1,4 +1,4 @@
-nymea-plugin-grid-support (0.0.3) UNRELEASED; urgency=medium
+nymea-plugin-grid-support (0.0.3) RELEASED; urgency=medium
 
   * use new grid support interface
 
